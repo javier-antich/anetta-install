@@ -1,0 +1,48 @@
+inventory_sdl:
+  schema: '
+
+ #name of device in inventory
+
+    type device {
+
+        deviceName: String!
+
+
+        #type of device in inventory
+
+        #possible values: network, server, gcloud
+
+        type: String
+
+  
+        #type of vendor and/or operating system
+
+        #possible values: juniper_junos, linux_server, arista, cisco, google_cloud
+
+        deviceType: String
+
+
+        #IP address of management interface
+
+  
+        ipAddress: String
+
+    }
+
+
+    #Root query to access device data
+
+    type Query {
+  
+        #Get all devices in inventory
+  
+        devices: [Device]
+
+  
+        #Get device by name
+
+        device(deviceName: String!): device
+
+    }
+
+    '

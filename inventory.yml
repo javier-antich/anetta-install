@@ -1,0 +1,37 @@
+inventory:
+  vsrxng3:
+    type: 'network'
+    device_type: 'juniper_junos'
+    ip_address: '192.168.194.3'
+  vsrxng4:
+    type: 'network'
+    device_type: 'juniper_junos'
+    ip_address: '192.168.194.4'
+  vsrxng6:
+    type: 'network'
+    device_type: 'juniper_junos'
+    ip_address: '192.168.194.6'
+  vsrxng7:
+    type: 'network'
+    device_type: 'juniper_junos'
+    ip_address: '192.168.194.7'
+  eve-ng-server:
+    type: 'server'
+    device_type: 'linux_server'
+    ip_address: '10.11.12.13'
+  gcloud:
+    type: 'gcloud'
+    device_type: 'google_cloud'
+    ip_address: '127.0.0.1'
+
+
+
+
+
+
+
+
+
+
+
+

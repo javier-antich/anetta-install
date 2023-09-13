@@ -1,0 +1,97 @@
+#LLM information
+#At the moment only gpt-4 is available. 
+llm:
+  model: 'gpt-4'
+  openai_key: 'your_open_ai_key'
+
+#operation
+operation:
+  max_steps: 10
+  #the following parameter is highly experimental. It will spin up a swarm of agents to get your responses
+  num_agents: 1
+  
+
+#data sources available
+#if any of the following sources is not available for Anetta to use, set it to 'no', otherwise errors will happen
+data_sources:
+  ssh_cli: 'yes'
+  ssh: 'no'
+  snmp: 'no'
+  prometheus: 'no'
+  google_cloud: 'yes'
+
+#cli specific parameters
+# I know, I know, at some point it should use a secrets vault, but I´m not there yet.
+ssh_cli:
+  user_name: 'your_user_name'
+  password: 'your_password'
+
+#snmp specific parameters
+snmp:
+  #no other version than v2c is supported for pratical purposes. More in the future.
+  version: 'v2c'
+  community_string: 'public'
+
+
+#prometheus server parameters
+#if you have a prometheus server you want Anetta to use to read data, set the parameters here.
+prometheus:
+  prometheus_host: 'your_prometheus_ip_or_hostname'
+  prometheus_port: 'your_prometheus_port'
+  prometheus_label_list_api_call: '/api/v1/label/__name__/values'
+
+#Google Cloud data:
+#if you want Anetta to give you responses about your Google cloud resources,
+# set here the project id.
+google_cloud:
+  gcp_project_id: 'your_GCP_project_id'
+
+#inventory service
+#if you can provide an alernative inventory source than the one Anetta offers by default, modify the following
+#otherwise, simply edit the inventory file (inventory.yml)
+inventory:
+  graphql_service: 'http://localhost:8000/graphql'
+  inventory_sdl: 'inventory_sdl.yml'
+  inventory_file: 'inventory.yml'
+
+#human processing times
+
+human_processing_times:
+  decision_request: 5
+  analysis_request: 30
+  information_request: 60
+  plan_request: 30
+  action_plan_request: 300
+  command_execution: 10
+  versions_request: 0
+
+api:
+  #time in hours Anetta will keep responses in its cache before deleting them.
+  requests_cache_time: 1
+
+#A description of the domain you expect Anetta to operate on
+#The one below is an example. Create yours
+#The name you add to the domain is irrelevant for now.
+#Only one domain is supported. Multi-domain is a roadmap item.
+domains:
+  ip_mpls: "
+     The context for my requests is:
+    - An IP/MPLS network. 
+    - The network is running OSPF as IGP
+    - All routers are in the same area 0.
+    - The network is running LDP as MPLS transport label signaling protocol.
+    - Only PE routers vsrxng6 and vsrxng7 are running BGP
+    - Routers vsrxng3 and vsrxng4 are pure LSRs, they do not run BGP
+    - The PE routers are running BGP based MPLS VPNs.
+    - The network Autonomous System is 65001
+    - The BGP sessions are established using loopback addresses.
+    - In the routers, the loopback address is the interface lo0.0
+  "
+
+
+
+
+
+
+
+

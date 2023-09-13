@@ -1,0 +1,21 @@
+version: '3.8'
+services:
+  anetta:
+    image: javierantich/anetta-1-0-0:v1.0.0
+    container_name: anetta
+    command: python /anetta/manage.py runserver 0.0.0.0:8000
+    restart: always
+    volumes:
+    
+      - ./anetta_config.yml:/anetta/anetta_config.yml
+      - ./anetta_requests.csv:/anetta/anetta_requests.csv
+      - ./llm_requests.csv:/anetta/llm_requests.csv
+      - ./inventory.yml:/anetta/inventory.yml
+      - ./inventory_sdl.yml:/anetta/inventory_sdl.yml
+      - ./gcp_service_account_credentials.json:/anetta/gcp_service_account_credentials.json
+    ports:
+      - "8000:8000"
+      
+
+
+  
