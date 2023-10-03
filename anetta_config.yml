@@ -1,5 +1,4 @@
 #LLM information
-#At the moment only gpt-4 is available. 
 llm:
   model: 'gpt-4'
   openai_key: 'your_open_ai_key'
