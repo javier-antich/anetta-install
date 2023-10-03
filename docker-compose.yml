@@ -1,7 +1,7 @@
 version: '3.8'
 services:
   anetta:
-    image: javierantich/anetta-1-0-0:v1.0.0
+    image: javierantich/anetta:latest
     container_name: anetta
     command: python /anetta/manage.py runserver 0.0.0.0:8000
     restart: always

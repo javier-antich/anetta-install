@@ -3,6 +3,14 @@
 llm:
   model: 'gpt-4'
   openai_key: 'your_open_ai_key'
+  #the following parameters are optional. Add them if you are using Openrouter.ai
+  #openrouter: 'yes'
+  #choose the model from those supported by OpenRouter.ai
+  #openrouter_model: 'anthropic/claude-2'
+  #openrouter_key: 'your openrouter api key'
+  #openrouter_endpoint: 'https://openrouter.ai/api/v1'
+  #if you want to change the OpenAI endpoint, modify the following parameter. Otherwise, leave it as default.
+  openai_endpoint: 'https://api.openai.com/v1'
 
 #operation
 operation:
