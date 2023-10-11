@@ -1,8 +1,10 @@
 version: '3.8'
 services:
   anetta:
-    image: javierantich/anetta:latest
+    image: javierantich/anetta-arm64:latest
     container_name: anetta
+    environment:
+      - ALLOWED_HOSTS=127.0.0.1
     command: python /anetta/manage.py runserver 0.0.0.0:8000
     restart: always
     volumes:
