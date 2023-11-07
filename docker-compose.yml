@@ -4,7 +4,12 @@ services:
     image: javierantich/anetta-arm64:latest
     container_name: anetta
     environment:
-      - ALLOWED_HOSTS=127.0.0.1
+      #if you are planning to run Anetta in a server, add in ALLOWED_HOSTS the IP address Anetta will be reachable in that server
+      - ALLOWED_HOSTS=127.0.0.1,localhost
+      #if you need Anetta to use a proxy server to reach Internet fill and uncomment the parameters below
+      #- HTTP_PROXY=http://your.proxy.server:port
+      #- HTTPS_PROXY=https://your.proxy.server:port
+      #- NO_PROXY=localhost,127.0.0.1  
     command: python /anetta/manage.py runserver 0.0.0.0:8000
     restart: always
     volumes:

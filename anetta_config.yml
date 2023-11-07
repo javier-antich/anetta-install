@@ -1,5 +1,6 @@
 #LLM information
 llm:
+  #now new OpenAI models are possible: 'gpt-4','gpt-4-32k' (if you have access),'gpt-4-1106-preview'(new GPT-4-Turbo in beta)
   model: 'gpt-4'
   openai_key: 'your_open_ai_key'
   #the following parameters are optional. Add them if you are using Openrouter.ai
