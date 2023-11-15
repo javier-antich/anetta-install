@@ -15,9 +15,7 @@ inventory_sdl:
         type: String
 
   
-        #type of vendor and/or operating system
-
-        #possible values: juniper_junos, linux_server, arista, cisco, google_cloud
+        #type of vendor and/or operating system. Netmiko supported device types
 
         deviceType: String
 

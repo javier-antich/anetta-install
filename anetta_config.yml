@@ -17,6 +17,8 @@ operation:
   max_steps: 10
   #the following parameter is highly experimental. It will spin up a swarm of agents to get your responses
   num_agents: 1
+  #the following parameters enables "verbose" mode in the UI. Set it to 'yes' if required
+  verbose: 'no'
   
 
 #data sources available
