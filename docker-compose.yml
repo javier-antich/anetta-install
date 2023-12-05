@@ -9,7 +9,14 @@ services:
       #if you need Anetta to use a proxy server to reach Internet fill and uncomment the parameters below
       #- HTTP_PROXY=http://your.proxy.server:port
       #- HTTPS_PROXY=https://your.proxy.server:port
-      #- NO_PROXY=localhost,127.0.0.1  
+      #- NO_PROXY=localhost,127.0.0.1
+      - DB_HOST=host.docker.internal
+      - DB_ENGINE=postgresql
+      - DB_NAME=django_db
+      - DB_USERNAME=postgres
+      - DB_PASS=anetta1234!
+      - DB_PORT=5433
+
     command: python /anetta/manage.py runserver 0.0.0.0:8000
     restart: always
     volumes:
@@ -20,9 +27,27 @@ services:
       - ./inventory.yml:/anetta/inventory.yml
       - ./inventory_sdl.yml:/anetta/inventory_sdl.yml
       - ./gcp_service_account_credentials.json:/anetta/gcp_service_account_credentials.json
+
+    depends_on:
+      - db
+
     ports:
       - "8000:8000"
       
+
+  db:
+    image: ankane/pgvector
+    environment:
+      POSTGRES_DB: django_db
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: anetta1234!
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./dbexport.sql:/docker-entrypoint-initdb.d/dbexport.sql
+    ports:
+      - "5433:5432" 
+volumes:
+  postgres_data:
 
 
   

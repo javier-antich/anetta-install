@@ -11,6 +11,9 @@ llm:
   #openrouter_endpoint: 'https://openrouter.ai/api/v1'
   #if you want to change the OpenAI endpoint, modify the following parameter. Otherwise, leave it as default.
   openai_endpoint: 'https://api.openai.com/v1'
+  openai_embedding: 'text-embedding-ada-002'
+  huggingface_embedding: 'jinaai/jina-embeddings-v2-base-en'
+  local_embedding: 'no'
 
 #operation
 operation:
@@ -19,6 +22,8 @@ operation:
   num_agents: 1
   #the following parameters enables "verbose" mode in the UI. Set it to 'yes' if required
   verbose: 'no'
+  hallucination_management: 'yes'
+  use_local_knowledgebase: 'yes'
   
 
 #data sources available
